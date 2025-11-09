@@ -1,0 +1,21 @@
+.employeeCont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.employeeInfo {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  color: black;
+}
+
+.crdBtnCont {
+  display: flex;
+  gap: 10px;
+}
+
+.cardBtn {
+  background-color: transparent;
+  border: 0;
+}

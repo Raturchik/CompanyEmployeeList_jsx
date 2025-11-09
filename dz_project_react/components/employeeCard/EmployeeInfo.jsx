@@ -1,22 +1,16 @@
-export const EmployeeInfo = ({
-  employee,
-  employeeCont,
-  className,
-  className1,
-  className2,
-  onDelete,
-}) => {
+import style from "./employeeCard.module.scss";
+export const EmployeeInfo = ({ employee, onDelete }) => {
   return (
     <ul>
       {employee.map((employee) => (
         <li key={employee.id}>
-          <div className={employeeCont}>
-            <div className={className}>
+          <div className={style.employeeCont}>
+            <div className={style.employeeInfo}>
               <p>{employee.name}</p>
               <p>{employee.salary} $</p>
             </div>
-            <div className={className1}>
-              <button className={className2}>
+            <div className={style.crdBtnCont}>
+              <button className={style.cardBtn}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16"
@@ -30,7 +24,7 @@ export const EmployeeInfo = ({
                 </svg>
               </button>
               <button
-                className={className2}
+                className={style.cardBtn}
                 onClick={() => onDelete(employee.id)}
               >
                 <svg

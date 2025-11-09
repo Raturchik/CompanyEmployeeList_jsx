@@ -1,0 +1,21 @@
+.addForm {
+  display: flex;
+  justify-content: space-between;
+  .employeeData {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    .input {
+      width: 50%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 0;
+    }
+  }
+  .addBtn {
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
-const EmployeeAddForm = ({ addEmployee, ...props }) => {
+import style from "./employeeAddForm.module.scss";
+const EmployeeAddForm = (addEmployee) => {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
 
@@ -19,10 +20,10 @@ const EmployeeAddForm = ({ addEmployee, ...props }) => {
   };
 
   return (
-    <div className={props.classNameForm}>
-      <form action={setNewEmployee} className={props.classNameData}>
+    <div className={style.addForm}>
+      <form action={setNewEmployee} className={style.employeeData}>
         <input
-          className={props.classNameInp}
+          className={style.input}
           type="text"
           name="name"
           value={name}
@@ -33,7 +34,7 @@ const EmployeeAddForm = ({ addEmployee, ...props }) => {
           required
         />
         <input
-          className={props.classNameInp}
+          className={style.input}
           type="number"
           name="salary"
           value={salary}
@@ -43,7 +44,7 @@ const EmployeeAddForm = ({ addEmployee, ...props }) => {
           }}
           required
         />
-        <button className={props.classNameAdd} type="submit">
+        <button className={style.addBtn} type="submit">
           Добавить
         </button>
       </form>

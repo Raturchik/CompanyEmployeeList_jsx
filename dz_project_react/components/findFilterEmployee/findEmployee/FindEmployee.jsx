@@ -1,9 +1,8 @@
-import React from "react";
-
-export const FindEmployee = (props) => {
+import style from "./FindEmployee.module.scss";
+export const FindEmployee = () => {
   return (
     <input
-      className={props.className}
+      className={style.findInput}
       id=""
       name=""
       type="text"

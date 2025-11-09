@@ -44,31 +44,15 @@ function App() {
         <BonusCount />
       </div>
       <div className={style.findEmployee}>
-        <FindEmployee className={style.findInput} />
-        <FilterEmployee
-          classNameIdle={style.filterBtn}
-          classNameAction={style.onClick}
-        />
+        <FindEmployee />
+        <FilterEmployee />
       </div>
       <div className={style.employeeCard}>
-        <EmployeeInfo
-          employee={employee}
-          employeeCont={style.employeeCont}
-          className={style.employeeInfo}
-          className1={style.crdBtnCont}
-          className2={style.cardBtn}
-          onDelete={deleteEmpById}
-        />
+        <EmployeeInfo employee={employee} onDelete={deleteEmpById} />
       </div>
       <div className={style.addNewEmployee}>
         <h2>Добавьте нового сотрудника</h2>
-        <EmployeeAddForm
-          addEmployee={addEmployee}
-          classNameForm={style.addForm}
-          classNameData={style.employeeData}
-          classNameInp={style.input}
-          classNameAdd={style.addBtn}
-        />
+        <EmployeeAddForm addEmployee={addEmployee} />
       </div>
     </section>
   );

@@ -34,17 +34,6 @@ button {
   gap: 10px;
   padding: 10px;
   border-radius: 4px;
-  .findInput {
-    padding: 3px;
-    border-radius: 3px;
-    border: 0;
-  }
-  .filterBtn {
-    border: 1px solid white;
-    color: white;
-    padding: 3px;
-    background-color: transparent;
-  }
 }
 
 .employeeCard {
@@ -52,27 +41,8 @@ button {
   :hover {
     color: yellow;
     cursor: pointer;
+    list-style-type: none;
   }
-}
-.employeeInfo {
-  display: flex;
-  width: 70%;
-  justify-content: space-between;
-  color: black;
-}
-
-.employeeCont {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cardBtn {
-  background-color: transparent;
-  border: 0;
-}
-.crdBtnCont {
-  display: flex;
-  gap: 10px;
 }
 
 .addNewEmployee {
@@ -83,30 +53,4 @@ button {
   padding: 10px;
   border-radius: 4px;
   padding: 15px;
-  .addForm {
-    display: flex;
-    justify-content: space-between;
-    .employeeData {
-      width: 80%;
-      display: flex;
-      gap: 10px;
-      .input {
-        width: 50%;
-        padding: 5px;
-        border-radius: 3px;
-        border: 0;
-      }
-    }
-    .addBtn {
-      border: 1px solid white;
-      border-radius: 3px;
-      padding: 5px;
-      background-color: transparent;
-    }
-  }
-}
-
-.onClick {
-  background-color: white;
-  color: black;
 }
