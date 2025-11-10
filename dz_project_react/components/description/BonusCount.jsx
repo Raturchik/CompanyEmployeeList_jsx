@@ -1,5 +1,5 @@
-import React from "react";
-
-export const BonusCount = () => {
-  return <p>Премию получат: {}</p>;
+export const BonusCount = ({ count }) => {
+  return (
+    <p>Премию получат: {count.filter((count) => count.isGiveBonuses).length}</p>
+  );
 };

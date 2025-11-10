@@ -1,5 +1,5 @@
 import style from "./employeeCard.module.scss";
-export const EmployeeInfo = ({ employee, onDelete }) => {
+export const EmployeeInfo = ({ employee, onDelete, onBonus }) => {
   return (
     <ul>
       {employee.map((employee) => (
@@ -10,7 +10,15 @@ export const EmployeeInfo = ({ employee, onDelete }) => {
               <p>{employee.salary} $</p>
             </div>
             <div className={style.crdBtnCont}>
-              <button className={style.cardBtn}>
+              <button
+                className={style.cardBtn}
+                onClick={() => onBonus(employee.id)}
+                style={{
+                  backgroundColor: employee.isGiveBonuses
+                    ? "yellow"
+                    : " transparent",
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16"

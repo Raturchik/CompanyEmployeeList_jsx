@@ -1,15 +1,14 @@
 import { useState } from "react";
 import style from "./employeeAddForm.module.scss";
-const EmployeeAddForm = (addEmployee) => {
+const EmployeeAddForm = ({ addEmployee }) => {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
 
-  const setNewEmployee = (formData) => {
-    console.log(formData.get("name"));
-
+  const setNewEmployee = () => {
     const newEmployee = {
       name: name,
       salary: parseInt(salary),
+      isGiveBonuses: false,
     };
 
     console.log("Новый сотрудник:", newEmployee);
