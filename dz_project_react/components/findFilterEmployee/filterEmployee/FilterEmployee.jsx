@@ -1,10 +1,24 @@
 import style from "./filterEmployee.module.scss";
-export const FilterEmployee = () => {
+
+export const FilterEmployee = ({ isActive, filters, handleFilterClick }) => {
   return (
     <div>
-      <button className={style.button}>Все сотрудники</button>
-      <button className={style.button}>На повышение</button>
-      <button className={style.button}>З/П больше 1000$</button>
+      {filters.map((filter) => (
+        <button
+          key={filter.id}
+          id={filter.id}
+          className={style.button}
+          style={{
+            backgroundColor: isActive === filter.id ? "white" : "transparent",
+            color: isActive === filter.id ? "black" : "white",
+          }}
+          onClick={() => {
+            handleFilterClick(filter.id);
+          }}
+        >
+          {filter.name}
+        </button>
+      ))}
     </div>
   );
 };

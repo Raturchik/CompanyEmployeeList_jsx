@@ -1,8 +1,8 @@
 import style from "./employeeCard.module.scss";
-export const EmployeeInfo = ({ employee, onDelete, onBonus }) => {
+export const EmployeeInfo = ({ onDelete, onBonus, filteredEmployees }) => {
   return (
     <ul>
-      {employee.map((employee) => (
+      {filteredEmployees.map((employee) => (
         <li key={employee.id}>
           <div className={style.employeeCont}>
             <div className={style.employeeInfo}>

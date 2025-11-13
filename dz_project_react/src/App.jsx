@@ -18,12 +18,39 @@ function App() {
     {
       id: 1,
       name: "John",
-      salary: "1000",
+      salary: 1000,
       isGiveBonuses: false,
     },
+    {
+      id: 2,
+      name: "Daria",
+      salary: 700,
+      isGiveBonuses: true,
+    },
+    {
+      id: 3,
+      name: "Peter",
+      salary: 1500,
+      isGiveBonuses: true,
+    },
   ]);
+  const [isActive, setIsActive] = useState("all");
 
-  console.log(employee);
+  const filters = [
+    { id: "all", name: "Все сотрудники" },
+    { id: "bonus", name: "На повышение" },
+    { id: "salary", name: "З/П больше 1000" },
+  ];
+
+  const handleFilterClick = (id) => {
+    setIsActive(id);
+  };
+
+  const filteredEmployees = employee.filter((employee) => {
+    if (isActive === "all") return true;
+    if (isActive === "bonus") return employee.isGiveBonuses;
+    if (isActive === "salary") return employee.salary > 1000;
+  });
 
   const addEmployee = (newEmployee) => {
     const nextEmployee = {
@@ -55,11 +82,16 @@ function App() {
       </div>
       <div className={style.findEmployee}>
         <FindEmployee />
-        <FilterEmployee />
+        <FilterEmployee
+          isActive={isActive}
+          filters={filters}
+          handleFilterClick={handleFilterClick}
+        />
       </div>
       <div className={style.employeeCard}>
         <EmployeeInfo
           employee={employee}
+          filteredEmployees={filteredEmployees}
           onDelete={deleteEmpById}
           onBonus={setGiveBonus}
         />
