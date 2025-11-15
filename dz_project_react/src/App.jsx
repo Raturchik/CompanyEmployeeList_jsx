@@ -14,7 +14,7 @@ import EmployeeAddForm from "../components/addEmployee/EmployeeAddForm";
 import style from "./App.module.scss";
 
 function App() {
-  const [employee, setEmployee] = useState([
+  let [employee, setEmployee] = useState([
     {
       id: 1,
       name: "John",
@@ -41,15 +41,28 @@ function App() {
     { id: "bonus", name: "На повышение" },
     { id: "salary", name: "З/П больше 1000" },
   ];
+  const [searchText, setSearchText] = useState("");
 
   const handleFilterClick = (id) => {
     setIsActive(id);
   };
 
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setSearchText(value);
+  };
+
+  const getFilteredEmployeesBySearch = (employee, searchText) => {
+    return employee.filter((item) =>
+      item.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    );
+  };
   const filteredEmployees = employee.filter((employee) => {
     if (isActive === "all") return true;
     if (isActive === "bonus") return employee.isGiveBonuses;
     if (isActive === "salary") return employee.salary > 1000;
+    if (employee.find((emp) => emp.name.includes(value)))
+      return employee.name.includes(() => value);
   });
 
   const addEmployee = (newEmployee) => {
@@ -73,6 +86,10 @@ function App() {
       )
     );
   };
+  const allSortedEmp = getFilteredEmployeesBySearch(
+    filteredEmployees,
+    searchText
+  );
   return (
     <section className={style.section}>
       <div className={style.top}>
@@ -81,7 +98,10 @@ function App() {
         <BonusCount count={employee} />
       </div>
       <div className={style.findEmployee}>
-        <FindEmployee />
+        <FindEmployee
+          searchText={searchText}
+          handleInputChange={handleInputChange}
+        />
         <FilterEmployee
           isActive={isActive}
           filters={filters}
@@ -91,7 +111,7 @@ function App() {
       <div className={style.employeeCard}>
         <EmployeeInfo
           employee={employee}
-          filteredEmployees={filteredEmployees}
+          allSortedEmp={allSortedEmp}
           onDelete={deleteEmpById}
           onBonus={setGiveBonus}
         />
