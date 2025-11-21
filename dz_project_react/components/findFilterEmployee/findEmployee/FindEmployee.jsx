@@ -1,4 +1,3 @@
-import { useState } from "react";
 import style from "./FindEmployee.module.scss";
 export const FindEmployee = ({ searchText, handleInputChange }) => {
   return (

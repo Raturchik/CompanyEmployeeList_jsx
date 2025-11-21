@@ -14,7 +14,7 @@ import EmployeeAddForm from "../components/addEmployee/EmployeeAddForm";
 import style from "./App.module.scss";
 
 function App() {
-  let [employee, setEmployee] = useState([
+  const [employee, setEmployee] = useState([
     {
       id: 1,
       name: "John",
@@ -61,8 +61,6 @@ function App() {
     if (isActive === "all") return true;
     if (isActive === "bonus") return employee.isGiveBonuses;
     if (isActive === "salary") return employee.salary > 1000;
-    if (employee.find((emp) => emp.name.includes(value)))
-      return employee.name.includes(() => value);
   });
 
   const addEmployee = (newEmployee) => {
